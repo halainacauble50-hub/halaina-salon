@@ -56,6 +56,27 @@
 <img src="salonlogo(1)(1).png" width="100%">
 
 <h1>Appointment Book</h1>
+  text-align:center;
+margin-bottom:20px;
+">
+
+<button onclick="calendar.changeView('timeGridDay')">
+Day
+</button>
+
+<button onclick="calendar.changeView('timeGridWeek')">
+Week
+</button>
+
+<button onclick="calendar.changeView('dayGridMonth')">
+Month
+</button>
+
+<button onclick="calendar.changeView('multiMonthYear')">
+Year
+</button>
+
+</div>
 
 <div class="dashboard-container">
 
@@ -74,22 +95,7 @@
     </div>
 <hr>
 
-<h4>Quick Jump</h4>
 
-<button onclick="calendar.changeView('timeGridDay')"
-style="width:100%;margin-bottom:5px;">
-Day View
-</button>
-
-<button onclick="calendar.changeView('timeGridWeek')"
-style="width:100%;margin-bottom:5px;">
-Week View
-</button>
-
-<button onclick="calendar.changeView('dayGridMonth')"
-style="width:100%;">
-Month View
-</button>
   </div>
 
   <div class="main-calendar">
@@ -109,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
-      right: 'timeGridDay,timeGridWeek,dayGridMonth'
+ right: 'timeGridDay,timeGridWeek,dayGridMonth,multiMonthYear'
     },
 
     nowIndicator: true,
