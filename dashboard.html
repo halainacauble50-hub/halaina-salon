@@ -21,14 +21,33 @@
       margin:20px 0;
     }
 
-    #calendar{
-      max-width:1400px;
-      margin:20px auto;
-      background:white;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 0 10px rgba(0,0,0,.1);
-    }
+#calendar{
+  max-width:1400px;
+  margin:20px auto;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.dashboard-container{
+  display:flex;
+  gap:20px;
+  max-width:1600px;
+  margin:20px auto;
+}
+
+.sidebar{
+  width:250px;
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+
+.main-calendar{
+  flex:1;
+}
   </style>
 </head>
 
@@ -38,7 +57,44 @@
 
 <h1>Appointment Book</h1>
 
-<div id="calendar"></div>
+<div class="dashboard-container">
+
+  <div class="sidebar">
+
+    <h3>Calendar</h3>
+
+    <input type="date" id="jumpDate" style="
+      width:100%;
+      padding:8px;
+      margin-bottom:20px;
+    ">
+
+    <div class="quick-links">
+      <button onclick="calendar.today()">Today</button>
+    </div>
+<hr>
+
+<h4>Quick Jump</h4>
+
+<button onclick="calendar.changeView('timeGridDay')"
+style="width:100%;margin-bottom:5px;">
+Day View
+</button>
+
+<button onclick="calendar.changeView('timeGridWeek')"
+style="width:100%;margin-bottom:5px;">
+Week View
+</button>
+
+<button onclick="calendar.changeView('dayGridMonth')"
+style="width:100%;">
+Month View
+</button>
+  </div>
+
+  <div class="main-calendar">
+    <div id="calendar"></div>
+  </div>
 
 <script>
 
@@ -67,6 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   calendar.render();
+document.getElementById('jumpDate').addEventListener('change', function() {
+  calendar.gotoDate(this.value);
 
 });
 
