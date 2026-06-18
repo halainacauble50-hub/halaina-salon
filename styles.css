@@ -20,18 +20,20 @@ body {
 }
 
 h1 {
-    color: #8b5e3c;
+    color: #111111;
     font-size: 48px;
+    font-weight: 700;
 }
 
 h2 {
-    color: #8b5e3c;
+    color: #111111;
+    font-weight: 600;
 }
 
 button {
-    background: #8b5e3c;
-    color: white;
-    border: none;
+    background: #111111;
+    color: #ffffff;
+    border: 2px solid #c0c0c0;
     padding: 14px 32px;
     font-size: 18px;
     font-weight: 600;
@@ -43,9 +45,11 @@ button {
 
 button:hover {
     transform: translateY(-2px);
-    background: #6f472c;
-    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    background: #c0c0c0;
+    color: #111111;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
+
 .button-group {
     display: flex;
     justify-content: center;
