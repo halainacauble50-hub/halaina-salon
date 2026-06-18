@@ -108,6 +108,34 @@ function showAvailability() {
 `;
 
 }
+   function selectTime(time) {
+
+    document.getElementById("selectedTime").innerHTML = `
+
+    <h3>Selected Time: ${time}</h3>
+
+    <p>
+    <strong>Name</strong><br>
+    <input type="text">
+    </p>
+
+    <p>
+    <strong>Phone</strong><br>
+    <input type="tel">
+    </p>
+
+    <p>
+    <strong>Email (optional)</strong><br>
+    <input type="email">
+    </p>
+
+  <button type="button">
+Request Appointment
+</button>
+
+`;
+
+}
 </script>
 </body>
 </html>
