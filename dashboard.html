@@ -1,1 +1,76 @@
-<div class="calendar-placeholder"> Week View Calendar Coming Soon <br><br> Appointments will display here directly from Supabase. </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaina Salon Dashboard</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+
+  <style>
+    body{
+      font-family:Arial,sans-serif;
+      margin:0;
+      background:#f5f5f5;
+    }
+
+    h1{
+      text-align:center;
+      margin:20px 0;
+    }
+
+    #calendar{
+      max-width:1400px;
+      margin:20px auto;
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,.1);
+    }
+  </style>
+</head>
+
+<body>
+
+<img src="salonlogo(1)(1).png" width="100%">
+
+<h1>Appointment Book</h1>
+
+<div id="calendar"></div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+
+    initialView: 'timeGridWeek',
+
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'timeGridDay,timeGridWeek,dayGridMonth'
+    },
+
+    nowIndicator: true,
+
+    editable: true,
+
+    selectable: true,
+
+    events: []
+
+  });
+
+  calendar.render();
+
+});
+
+</script>
+
+</body>
+</html>
