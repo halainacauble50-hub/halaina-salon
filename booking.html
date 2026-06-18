@@ -159,12 +159,31 @@ async function requestAppointment() {
         return;
     }
 
-    alert(
-        "Appointment Request\n\n" +
-        "Name: " + name + "\n" +
-        "Phone: " + phone + "\n" +
-        "Email: " + email
-    );
+  const { error } = await supabaseClient
+.from('appointments')
+.insert([
+{
+name: name,
+phone: phone,
+email: email,
+service: document.querySelector('select').value,
+appointment_date: document.querySelector('input[type="date"]').value,
+appointment_time: document.getElementById('selectedTime').innerText.replace('Selected Time: ',''),
+status: 'Pending'
+}
+]);
+
+if (error) {
+alert('Error saving appointment.');
+console.error(error);
+return;
+}
+
+alert('Appointment request submitted successfully!');
+
+document.getElementById('clientName').value = '';
+document.getElementById('clientPhone').value = '';
+document.getElementById('clientEmail').value = '';
 }
 
 </script>
