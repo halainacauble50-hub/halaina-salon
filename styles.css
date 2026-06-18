@@ -11,9 +11,12 @@ body {
     padding: 40px;
 }
 
-img {
-    max-width: 500px;
-    width: 90%;
+.logo {
+    width: 95%;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 h1 {
