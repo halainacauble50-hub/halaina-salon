@@ -90,6 +90,14 @@ Check Availability
 
 </form>
 <script>
+const SUPABASE_URL = 'https://iodnevopnptslcosyysu.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_eKi6OzB1cuLlMT1AvvBAow_9IYNZg4V';
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+    
 function showAvailability() {
 
     document.getElementById("availability").innerHTML = `
@@ -132,13 +140,18 @@ function showAvailability() {
     <input type="email">
     </p>
 
-  <button type="button">
+<button type="button" onclick="requestAppointment()">
 Request Appointment
 </button>
 
 `;
 
 }
+
+async function requestAppointment() {
+    alert("Appointment function connected!");
+}
+
 </script>
 </body>
 </html>
