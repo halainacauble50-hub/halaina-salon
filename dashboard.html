@@ -173,11 +173,75 @@ document.getElementById('miniCalendar1').onclick = function(e){
 
   calendar.gotoDate('2026-06-' + day.padStart(2,'0'));
 };
-document.getElementById('miniCalendar2').innerHTML =
-'<h4 style="text-align:center;">July 2026</h4>';
+document.getElementById('miniCalendar2').innerHTML = `
+<h4 style="text-align:center;">July 2026</h4>
+<table style="width:100%; text-align:center; border-collapse:collapse;">
+<tr>
+<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+</tr>
+<tr>
+<td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td>
+</tr>
+<tr>
+<td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td>
+</tr>
+<tr>
+<td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
+</tr>
+<tr>
+<td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+</tr>
+<tr>
+<td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td>
+</tr>
+</table>
+`;
 
-document.getElementById('miniCalendar3').innerHTML =
-'<h4 style="text-align:center;">August 2026</h4>';
+document.getElementById('miniCalendar2').onclick = function(e){
+
+  let day = e.target.innerText;
+
+  if(!isNaN(day) && day !== ''){
+    calendar.gotoDate('2026-07-' + day.padStart(2,'0'));
+  }
+
+};
+document.getElementById('miniCalendar3').innerHTML = `
+<h4 style="text-align:center;">August 2026</h4>
+<table style="width:100%; text-align:center; border-collapse:collapse;">
+<tr>
+<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+</tr>
+<tr>
+<td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
+</tr>
+<tr>
+<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+</tr>
+<tr>
+<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+</tr>
+<tr>
+<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+</tr>
+<tr>
+<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+</tr>
+<tr>
+<td>30</td><td>31</td><td></td><td></td><td></td><td></td><td></td>
+</tr>
+</table>
+`;
+
+document.getElementById('miniCalendar3').onclick = function(e){
+
+  let day = e.target.innerText;
+
+  if(!isNaN(day) && day !== ''){
+    calendar.gotoDate('2026-08-' + day.padStart(2,'0'));
+  }
+
+};
 
 
 
