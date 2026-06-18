@@ -165,7 +165,13 @@ document.getElementById('miniCalendar1').innerHTML = `
 </table>
 `;
 document.getElementById('miniCalendar1').onclick = function(e){
-  alert('clicked ' + e.target.innerText);
+
+  let day = e.target.innerText;
+
+  if(!isNaN(day) && day !== ''){
+    calendar.gotoDate('2026-06-' + day.padStart(2,'0'));
+  }
+
 };
 document.getElementById('miniCalendar2').innerHTML =
 '<h4 style="text-align:center;">July 2026</h4>';
