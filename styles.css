@@ -43,3 +43,10 @@ button:hover {
     background: #6f472c;
     box-shadow: 0 8px 20px rgba(0,0,0,.2);
 }
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
