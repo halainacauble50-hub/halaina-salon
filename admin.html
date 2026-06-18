@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Appointments | Halaina Salon</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+
+<body>
+
+<img src="salonlogo(1)(1).png" width="100%">
+
+<div class="button-group">
+    <a href="index.html"><button>Home</button></a>
+    <a href="services.html"><button>Services</button></a>
+    <a href="about.html"><button>About</button></a>
+    <a href="contact.html"><button>Contact</button></a>
+</div>
+
+<h1>Appointments</h1>
+
+<div id="appointments">
+Loading appointments...
+</div>
+
+<script>
+
+const SUPABASE_URL = 'https://iodnevopnptslcosyysu.supabase.co';
+
+const SUPABASE_KEY = 'PASTE_YOUR_PUBLISHABLE_KEY_HERE';
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+async function loadAppointments() {
+
+    const { data, error } = await supabaseClient
+        .from('appointments')
+        .select('*')
+        .order('appointment_date', { ascending: true });
+
+    if (error) {
+        document.getElementById('appointments').innerHTML =
+            'Error loading appointments.';
+        return;
+    }
+
+    let html = '';
+
+    data.forEach(appointment => {
+
+        html += `
+        <div style="
+            border:1px solid #ddd;
+            padding:15px;
+            margin-bottom:15px;
+            border-radius:10px;
+        ">
+
+        <strong>${appointment.name}</strong><br><br>
+
+        Phone: ${appointment.phone}<br>
+        Email: ${appointment.email}<br>
+        Service: ${appointment.service}<br>
+        Date: ${appointment.appointment_date}<br>
+        Time: ${appointment.appointment_time}<br>
+        Status: ${appointment.status}
+
+        </div>
+        `;
+    });
+
+    document.getElementById('appointments').innerHTML = html;
+}
+
+loadAppointments();
+
+</script>
+
+</body>
+</html>
