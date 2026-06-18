@@ -103,18 +103,35 @@ function showAvailability() {
     document.getElementById("availability").innerHTML = `
 
 <h2>Available Times</h2>
+<div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
 
-<button type="button" onclick="selectTime('9:00 AM')">9:00 AM</button><br><br>
+<button type="button" onclick="selectTime('9:00 AM')">9:00 AM</button>
+<button type="button" onclick="selectTime('9:30 AM')">9:30 AM</button>
+<button type="button" onclick="selectTime('10:00 AM')">10:00 AM</button>
+<button type="button" onclick="selectTime('10:30 AM')">10:30 AM</button>
+<button type="button" onclick="selectTime('11:00 AM')">11:00 AM</button>
+<button type="button" onclick="selectTime('11:30 AM')">11:30 AM</button>
+<button type="button" onclick="selectTime('12:00 PM')">12:00 PM</button>
+<button type="button" onclick="selectTime('12:30 PM')">12:30 PM</button>
+<button type="button" onclick="selectTime('1:00 PM')">1:00 PM</button>
+<button type="button" onclick="selectTime('1:30 PM')">1:30 PM</button>
 
-<button type="button" onclick="selectTime('11:00 AM')">11:00 AM</button><br><br>
-
-<button type="button" onclick="selectTime('1:00 PM')">1:00 PM</button><br><br>
-
-<button type="button" onclick="selectTime('3:00 PM')">3:00 PM</button><br><br>
-
+<button type="button" onclick="selectTime('2:00 PM')">2:00 PM</button>
+<button type="button" onclick="selectTime('2:30 PM')">2:30 PM</button>
+<button type="button" onclick="selectTime('3:00 PM')">3:00 PM</button>
+<button type="button" onclick="selectTime('3:30 PM')">3:30 PM</button>
+<button type="button" onclick="selectTime('4:00 PM')">4:00 PM</button>
+<button type="button" onclick="selectTime('4:30 PM')">4:30 PM</button>
 <button type="button" onclick="selectTime('5:00 PM')">5:00 PM</button>
+<button type="button" onclick="selectTime('5:30 PM')">5:30 PM</button>
+<button type="button" onclick="selectTime('6:00 PM')">6:00 PM</button>
+<button type="button" onclick="selectTime('6:30 PM')">6:30 PM</button>
+<button type="button" onclick="selectTime('7:00 PM')">7:00 PM</button>
+
+</div>
 
 <div id="selectedTime"></div>
+
 
 `;
 
