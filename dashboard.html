@@ -167,12 +167,11 @@ document.getElementById('miniCalendar1').innerHTML = `
 `;
 document.getElementById('miniCalendar1').onclick = function(e){
 
-  let day = e.target.innerText;
+  const day = e.target.innerText;
 
-  if(!isNaN(day) && day !== ''){
-    calendar.gotoDate('2026-06-' + day.padStart(2,'0'));
-  }
+  if(!day || isNaN(day)) return;
 
+  calendar.gotoDate('2026-06-' + day.padStart(2,'0'));
 };
 document.getElementById('miniCalendar2').innerHTML =
 '<h4 style="text-align:center;">July 2026</h4>';
