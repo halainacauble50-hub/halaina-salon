@@ -173,17 +173,20 @@ async function requestAppointment() {
         return;
     }
 
-  const { error } = await supabaseClient
+const { error } = await supabaseClient
 .from('appointments')
 .insert([
 {
-name: name,
-phone: phone,
-email: email,
-service: document.querySelector('select').value,
-appointment_date: document.querySelector('input[type="date"]').value,
-appointment_time: document.getElementById('selectedTime').innerText.replace('Selected Time: ',''),
-status: 'Pending'
+    name: name,
+    phone: phone,
+    email: email,
+    service: document.querySelector('select').value,
+    appointment_date: document.querySelector('input[type="date"]').value,
+    appointment_time: document.getElementById('selectedTime')
+        .querySelector('h3')
+        .innerText
+        .replace('Selected Time: ', ''),
+    status: 'Pending'
 }
 ]);
 
