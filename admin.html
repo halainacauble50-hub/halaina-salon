@@ -64,7 +64,7 @@ async function loadAppointments() {
 
         <strong>${appointment.name}</strong><br><br>
 
-        Phone: ${appointment.phone}<br>
+Phone: <a href="tel:${appointment.phone}">${appointment.phone}</a><br>
         Email: ${appointment.email}<br>
         Service: ${appointment.service}<br>
         Date: ${appointment.appointment_date}<br>
