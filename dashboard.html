@@ -55,7 +55,8 @@
 }
 #miniCalendar1,
 #miniCalendar2,
-#miniCalendar3{
+#miniCalendar3,
+#miniCalendar4{
   background:white;
   padding:8px;
   margin-bottom:10px;
@@ -66,7 +67,8 @@
 
 #miniCalendar1 td,
 #miniCalendar2 td,
-#miniCalendar3 td {
+#miniCalendar3 td,
+#miniCalendar4 td{
   padding: 3px;
   cursor: pointer;
 }
@@ -92,6 +94,9 @@
 <br>
 
 <div id="miniCalendar3"></div>
+<br>
+
+<div id="miniCalendar4"></div>
 
 
 
@@ -239,6 +244,39 @@ document.getElementById('miniCalendar3').onclick = function(e){
 
   if(!isNaN(day) && day !== ''){
     calendar.gotoDate('2026-08-' + day.padStart(2,'0'));
+  }
+
+};
+document.getElementById('miniCalendar4').innerHTML = `
+<h4 style="text-align:center;">September 2026</h4>
+<table style="width:100%; text-align:center; border-collapse:collapse;">
+<tr>
+<th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th>
+</tr>
+<tr>
+<td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+</tr>
+<tr>
+<td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+</tr>
+<tr>
+<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+</tr>
+<tr>
+<td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+</tr>
+<tr>
+<td>27</td><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td>
+</tr>
+</table>
+`;
+
+document.getElementById('miniCalendar4').onclick = function(e){
+
+  let day = e.target.innerText;
+
+  if(!isNaN(day) && day !== ''){
+    calendar.gotoDate('2026-09-' + day.padStart(2,'0'));
   }
 
 };
