@@ -127,17 +127,17 @@ function showAvailability() {
 
     <p>
     <strong>Name</strong><br>
-    <input type="text">
+<input type="text" id="clientName">
     </p>
 
     <p>
     <strong>Phone</strong><br>
-    <input type="tel">
+  <input type="tel" id="clientPhone">
     </p>
 
     <p>
     <strong>Email (optional)</strong><br>
-    <input type="email">
+<input type="email" id="clientEmail">
     </p>
 
 <button type="button" onclick="requestAppointment()">
@@ -149,7 +149,22 @@ Request Appointment
 }
 
 async function requestAppointment() {
-    alert("Appointment function connected!");
+
+    const name = document.getElementById('clientName').value;
+    const phone = document.getElementById('clientPhone').value;
+    const email = document.getElementById('clientEmail').value;
+
+    if (!name || !phone) {
+        alert("Please enter your name and phone number.");
+        return;
+    }
+
+    alert(
+        "Appointment Request\n\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Email: " + email
+    );
 }
 
 </script>
