@@ -185,17 +185,24 @@ document.getElementById('appointmentBtn').onclick = function(){
 
   document.getElementById('createModal').style.display = 'none';
 
-  let client = prompt('Client Name');
+  let name = prompt('Client Name');
+  if(!name) return;
 
-  if(client){
+  let phone = prompt('Phone Number');
+  let email = prompt('Email');
+  let notes = prompt('Notes');
 
-    calendar.addEvent({
-      title: client,
-      start: window.selectedInfo.start,
-      end: window.selectedInfo.end
-    });
+  calendar.addEvent({
+    title: name,
+    start: window.selectedInfo.start,
+    end: window.selectedInfo.end,
 
-  }
+    extendedProps:{
+      phone: phone,
+      email: email,
+      notes: notes
+    }
+  });
 
 };
 
