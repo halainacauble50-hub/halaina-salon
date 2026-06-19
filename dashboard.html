@@ -187,42 +187,24 @@ document.getElementById('appointmentBtn').onclick = function(){
 
   document.getElementById('createModal').style.display = 'none';
 
-  let name = prompt('Client Name');
-  if(!name) return;
+  let client = prompt('Client Name');
+  if(!client) return;
 
   let phone = prompt('Phone Number');
-  let email = prompt('Email');
+  let service = prompt('Service');
   let notes = prompt('Notes');
 
   calendar.addEvent({
-    title: name,
+    title: client,
     start: window.selectedInfo.start,
     end: window.selectedInfo.end,
 
     extendedProps:{
       phone: phone,
-      email: email,
+      service: service,
       notes: notes
     }
   });
-
-};
-
-document.getElementById('blockBtn').onclick = function(){
-
-  document.getElementById('createModal').style.display = 'none';
-
-  let details = prompt('Enter Block Details');
-
-  if(details){
-
-    calendar.addEvent({
-      title: details,
-      start: window.selectedInfo.start,
-      end: window.selectedInfo.end
-    });
-
-  }
 
 };
 
