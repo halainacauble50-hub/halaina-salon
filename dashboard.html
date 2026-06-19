@@ -145,8 +145,11 @@ eventClick: function(info){
 
   alert(
     'Client: ' + info.event.title +
+
     '\nPhone: ' + (info.event.extendedProps.phone || '') +
-    '\nEmail: ' + (info.event.extendedProps.email || '') +
+
+    '\nService: ' + (info.event.extendedProps.service || '') +
+
     '\nNotes: ' + (info.event.extendedProps.notes || '')
   );
 
