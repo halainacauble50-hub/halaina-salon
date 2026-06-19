@@ -142,6 +142,29 @@ left: 'prev,next',
 nowIndicator: false,
   editable: true,
   selectable: true,
+  select: function(info) {
+
+  let details = prompt(
+`Enter block details:
+
+Example:
+Dr. John Smith
+843-555-1234
+123 Main St
+MRI Follow-up`
+  );
+
+  if(details){
+
+    calendar.addEvent({
+      title: details,
+      start: info.start,
+      end: info.end
+    });
+
+  }
+
+},
 events: [
   {
     title: `Dr. John Smith
