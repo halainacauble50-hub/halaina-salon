@@ -144,7 +144,29 @@ nowIndicator: false,
   selectable: true,
   select: function(info) {
 
-  let details = prompt(
+let type = prompt(
+`Type:
+
+A = Appointment
+B = Time Block`
+);
+
+if(!type) return;
+
+let details = '';
+
+if(type.toUpperCase() === 'A'){
+
+  details = prompt(
+`Client Name
+
+Example:
+Sally Johnson`
+  );
+
+}else{
+
+  details = prompt(
 `Enter block details:
 
 Example:
@@ -153,6 +175,8 @@ Dr. John Smith
 123 Main St
 MRI Follow-up`
   );
+
+}
 
   if(details){
 
