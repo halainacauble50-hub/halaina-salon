@@ -153,16 +153,14 @@ eventClick: function(info){
 
   } else {
 
-    alert(
-      'Client: ' + info.event.title +
-      '\nPhone: ' + (info.event.extendedProps.phone || '') +
-      '\nEmail: ' + (info.event.extendedProps.email || '') +
-      '\nService: ' + (info.event.extendedProps.service || '') +
-      '\nNotes: ' + (info.event.extendedProps.notes || '')
-    );
-
+     if(confirm(
+    'Delete this appointment?\n\n' +
+    info.event.title
+  )){
+    info.event.remove();
   }
 
+}
 },
 
 selectable: true,
