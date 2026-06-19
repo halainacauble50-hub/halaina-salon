@@ -141,11 +141,13 @@ left: 'prev,next',
 
 nowIndicator: false,
   editable: true,
-  eventClick: function(info){
+eventClick: function(info){
 
   alert(
-    'Appointment: ' + info.event.title +
-    '\nStart: ' + info.event.start
+    'Client: ' + info.event.title +
+    '\nPhone: ' + (info.event.extendedProps.phone || '') +
+    '\nEmail: ' + (info.event.extendedProps.email || '') +
+    '\nNotes: ' + (info.event.extendedProps.notes || '')
   );
 
 },
