@@ -373,21 +373,7 @@ document.getElementById('miniCalendar4').onclick = function(e){
 
 
 });
-document.getElementById('deleteEventBtn').onclick = function(){
 
-  if(window.selectedEvent){
-    window.selectedEvent.remove();
-  }
-
-  document.getElementById('viewModal').style.display = 'none';
-
-};
-
-document.getElementById('closeViewBtn').onclick = function(){
-
-  document.getElementById('viewModal').style.display = 'none';
-
-};
 
 </script>
 
@@ -478,8 +464,27 @@ z-index:11000;
       Close
     </button>
 
-  </div>
-
 </div>
+
+<script>
+
+document.getElementById('deleteEventBtn').onclick = function(){
+
+  if(window.selectedEvent){
+    window.selectedEvent.remove();
+  }
+
+  document.getElementById('viewModal').style.display = 'none';
+
+};
+
+document.getElementById('closeViewBtn').onclick = function(){
+
+  document.getElementById('viewModal').style.display = 'none';
+
+};
+
+</script>
+
 </body>
 </html>
