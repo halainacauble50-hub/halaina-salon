@@ -189,13 +189,11 @@ calendar.render();
 
 document.getElementById('appointmentBtn').onclick = function(){
 
+  alert('Appointment button clicked');
+
   document.getElementById('createModal').style.display = 'none';
 
-  setTimeout(function(){
-
-    document.getElementById('appointmentModal').style.display = 'block';
-
-  }, 50);
+  document.getElementById('appointmentModal').style.display = 'block';
 
 };
   document.getElementById('closeAppointment').onclick = function(){
