@@ -187,6 +187,24 @@ document.getElementById('closeAppointment').onclick = function(){
   document.getElementById('appointmentModal').style.display = 'none';
 
 };
+  document.getElementById('timeBlockBtn').onclick = function(){
+
+  let details = prompt('Enter Block Details');
+
+  if(details){
+
+    calendar.addEvent({
+      title: 'BLOCKED: ' + details,
+      start: window.selectedInfo.start,
+      end: window.selectedInfo.end,
+      backgroundColor: '#666',
+      borderColor: '#666'
+    });
+
+    document.getElementById('appointmentModal').style.display = 'none';
+  }
+
+};
 
 document.getElementById('saveAppointment').onclick = function(){
 
