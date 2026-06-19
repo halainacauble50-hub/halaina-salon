@@ -190,12 +190,21 @@ document.getElementById('appointmentBtn').onclick = function(){
 
   document.getElementById('createModal').style.display = 'none';
 
-  let client = prompt('Client Name');
-  if(!client) return;
+  document.getElementById('appointmentModal').style.display = 'block';
 
-  let phone = prompt('Phone Number');
-  let service = prompt('Service');
-  let notes = prompt('Notes');
+};
+  document.getElementById('closeAppointment').onclick = function(){
+
+    document.getElementById('appointmentModal').style.display = 'none';
+
+};
+  document.getElementById('saveAppointment').onclick = function(){
+
+  let client = document.getElementById('clientName').value;
+  let phone = document.getElementById('clientPhone').value;
+  let email = document.getElementById('clientEmail').value;
+  let service = document.getElementById('serviceName').value;
+  let notes = document.getElementById('appointmentNotes').value;
 
   calendar.addEvent({
     title: client,
@@ -204,13 +213,15 @@ document.getElementById('appointmentBtn').onclick = function(){
 
     extendedProps:{
       phone: phone,
+      email: email,
       service: service,
       notes: notes
     }
   });
 
-};
+  document.getElementById('appointmentModal').style.display = 'none';
 
+};
 document.getElementById('miniCalendar1').innerHTML = `
 <h4 style="text-align:center;">June 2026</h4>
 <table style="width:100%; text-align:center; border-collapse:collapse;">
