@@ -234,7 +234,13 @@ document.getElementById('saveAppointment').onclick = function(){
     }
   });
 
-  document.getElementById('appointmentModal').style.display = 'none';
+document.getElementById('clientName').value = '';
+document.getElementById('clientPhone').value = '';
+document.getElementById('clientEmail').value = '';
+document.getElementById('serviceName').value = '';
+document.getElementById('appointmentNotes').value = '';
+
+document.getElementById('appointmentModal').style.display = 'none';
 
 };
  
