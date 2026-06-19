@@ -142,53 +142,16 @@ left: 'prev,next',
 nowIndicator: false,
   editable: true,
   selectable: true,
-  select: function(info) {
+select: function(info) {
 
-let type = prompt(
-`Type:
+  window.selectedInfo = info;
 
-A = Appointment
-B = Time Block`
-);
-
-if(!type) return;
-
-let details = '';
-
-if(type.toUpperCase() === 'A'){
-
-  details = prompt(
-`Client Name
-
-Example:
-Sally Johnson`
-  );
-
-}else{
-
-  details = prompt(
-`Enter block details:
-
-Example:
-Dr. John Smith
-843-555-1234
-123 Main St
-MRI Follow-up`
-  );
-
-}
-
-  if(details){
-
-    calendar.addEvent({
-      title: details,
-      start: info.start,
-      end: info.end
-    });
-
-  }
+  document.getElementById('createModal').style.display = 'block';
 
 },
+
+
+
 events: [
   {
     title: `Dr. John Smith
@@ -204,6 +167,47 @@ MRI Follow-up`,
 });
 
 calendar.render();
+  document.getElementById('cancelBtn').onclick = function(){
+
+  document.getElementById('createModal').style.display = 'none';
+
+};
+
+document.getElementById('appointmentBtn').onclick = function(){
+
+  document.getElementById('createModal').style.display = 'none';
+
+  let client = prompt('Client Name');
+
+  if(client){
+
+    calendar.addEvent({
+      title: client,
+      start: window.selectedInfo.start,
+      end: window.selectedInfo.end
+    });
+
+  }
+
+};
+
+document.getElementById('blockBtn').onclick = function(){
+
+  document.getElementById('createModal').style.display = 'none';
+
+  let details = prompt('Enter Block Details');
+
+  if(details){
+
+    calendar.addEvent({
+      title: details,
+      start: window.selectedInfo.start,
+      end: window.selectedInfo.end
+    });
+
+  }
+
+};
 
 document.getElementById('miniCalendar1').innerHTML = `
 <h4 style="text-align:center;">June 2026</h4>
