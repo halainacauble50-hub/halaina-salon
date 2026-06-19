@@ -140,7 +140,10 @@ left: 'prev,next',
   },
 
 nowIndicator: false,
-  editable: true,
+editable: true,
+
+eventClick: function(info){
+
   if(info.event.title.startsWith('BLOCKED:')){
 
     alert(
@@ -161,7 +164,8 @@ nowIndicator: false,
   }
 
 },
-  selectable: true,
+
+selectable: true,
 select: function(info) {
 
   window.selectedInfo = info;
