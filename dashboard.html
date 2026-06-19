@@ -200,6 +200,9 @@ const { data, error } = await supabaseClient
   .from('appointments')
   .select('*');
 
+  console.log('ERROR:', error);
+console.log('DATA:', data);
+  
 if (!error && data) {
 
   data.forEach(appt => {
