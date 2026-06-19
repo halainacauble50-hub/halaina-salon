@@ -205,16 +205,16 @@ if (!error && data) {
   data.forEach(appt => {
 
     calendar.addEvent({
-      title: appt.name,
- start: new Date(
-  appt.appointment_date + ' ' + appt.appointment_time
-),
-      extendedProps: {
-        phone: appt.phone,
-        email: appt.email,
-        service: appt.service
-      }
-    });
+  title: appt.name,
+
+  start: appt.appointment_date + 'T' + appt.appointment_time,
+
+  extendedProps: {
+    phone: appt.phone,
+    email: appt.email,
+    service: appt.service
+  }
+});
 
   });
 
