@@ -144,23 +144,25 @@ editable: true,
 
 eventClick: function(info){
 
-  if(info.event.title.startsWith('BLOCKED:')){
+  window.selectedEvent = info.event;
 
-    alert(
-      'Blocked Time\n\n' +
-      info.event.title
-    );
+  document.getElementById('viewTitle').innerText =
+    info.event.title;
 
-  } else {
+  document.getElementById('viewPhone').innerText =
+    'Phone: ' + (info.event.extendedProps.phone || '');
 
-     if(confirm(
-    'Delete this appointment?\n\n' +
-    info.event.title
-  )){
-    info.event.remove();
-  }
+  document.getElementById('viewEmail').innerText =
+    'Email: ' + (info.event.extendedProps.email || '');
 
-}
+  document.getElementById('viewService').innerText =
+    'Service: ' + (info.event.extendedProps.service || '');
+
+  document.getElementById('viewNotes').innerText =
+    'Notes: ' + (info.event.extendedProps.notes || '');
+
+  document.getElementById('viewModal').style.display = 'block';
+
 },
 
 selectable: true,
