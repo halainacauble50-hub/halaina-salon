@@ -196,7 +196,27 @@ document.getElementById('appointmentBtn').onclick = function(){
     document.getElementById('appointmentModal').style.display = 'none';
 
 };
+   document.getElementById('blockBtn').onclick = function(){
+
+  document.getElementById('createModal').style.display = 'none';
+
+  let details = prompt('Enter Block Details');
+
+  if(details){
+
+    calendar.addEvent({
+      title: 'BLOCKED: ' + details,
+      start: window.selectedInfo.start,
+      end: window.selectedInfo.end,
+      backgroundColor: '#666',
+      borderColor: '#666'
+    });
+
+  }
+
+};
   document.getElementById('saveAppointment').onclick = function(){
+   
 
   let client = document.getElementById('clientName').value;
   let phone = document.getElementById('clientPhone').value;
