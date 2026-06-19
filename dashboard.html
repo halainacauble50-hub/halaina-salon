@@ -141,6 +141,14 @@ left: 'prev,next',
 
 nowIndicator: false,
   editable: true,
+  eventClick: function(info){
+
+  alert(
+    'Appointment: ' + info.event.title +
+    '\nStart: ' + info.event.start
+  );
+
+},
   selectable: true,
 select: function(info) {
 
