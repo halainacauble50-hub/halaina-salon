@@ -181,41 +181,34 @@ events: []
 });
 
 calendar.render();
-  document.getElementById('cancelBtn').onclick = function(){
 
-  document.getElementById('createModal').style.display = 'none';
+document.getElementById('closeAppointment').onclick = function(){
 
-};
-
-document.getElementById('appointmentBtn').onclick = function(){
-
-  document.getElementById('createModal').style.display = 'none';
-
-  document.getElementById('appointmentModal').style.display = 'block';
+  document.getElementById('appointmentModal').style.display = 'none';
 
 };
-  document.getElementById('closeAppointment').onclick = function(){
 
-    document.getElementById('appointmentModal').style.display = 'none';
+document.getElementById('saveAppointment').onclick = function(){
 
-};
-   document.getElementById('blockBtn').onclick = function(){
+  let client = document.getElementById('clientName').value;
+  let phone = document.getElementById('clientPhone').value;
+  let email = document.getElementById('clientEmail').value;
+  let service = document.getElementById('serviceName').value;
+  let notes = document.getElementById('appointmentNotes').value;
 
-  document.getElementById('createModal').style.display = 'none';
+  calendar.addEvent({
+    title: client,
+    start: window.selectedInfo.start,
+    end: window.selectedInfo.end,
+    extendedProps:{
+      phone: phone,
+      email: email,
+      service: service,
+      notes: notes
+    }
+  });
 
-  let details = prompt('Enter Block Details');
-
-  if(details){
-
-    calendar.addEvent({
-      title: 'BLOCKED: ' + details,
-      start: window.selectedInfo.start,
-      end: window.selectedInfo.end,
-      backgroundColor: '#666',
-      borderColor: '#666'
-    });
-
-  }
+  document.getElementById('appointmentModal').style.display = 'none';
 
 };
   document.getElementById('saveAppointment').onclick = function(){
