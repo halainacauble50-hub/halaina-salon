@@ -114,7 +114,14 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function() {
+const SUPABASE_URL = 'https://iodnevopnptslcosyysu.supabase.co';
 
+const SUPABASE_KEY = 'sb_publishable_eKi6OzB1cuLlMT1AvvBAow_9IYNZg4V';
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
   var calendarEl = document.getElementById('calendar');
 
 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -214,14 +221,29 @@ document.getElementById('closeAppointment').onclick = function(){
 
 };
 
-document.getElementById('saveAppointment').onclick = function(){
+document.getElementById('saveAppointment').onclick = async function(){
 
   let client = document.getElementById('clientName').value;
   let phone = document.getElementById('clientPhone').value;
   let email = document.getElementById('clientEmail').value;
   let service = document.getElementById('serviceName').value;
   let notes = document.getElementById('appointmentNotes').value;
-
+await supabaseClient
+  .from('appointments')
+  .insert([
+    {
+      name: client,
+      phone: phone,
+      email: email,
+      service: service,
+      appointment_date: window.selectedInfo.start.toISOString().split('T')[0],
+      appointment_time: window.selectedInfo.start.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      }),
+      status: 'Pending'
+    }
+  ]);
   calendar.addEvent({
     title: client,
     start: window.selectedInfo.start,
