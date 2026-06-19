@@ -470,5 +470,42 @@ Cancel
 
 </div>
 </div>
+  <div id="viewModal" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.5);
+z-index:11000;
+">
+
+  <div style="
+  background:white;
+  width:400px;
+  margin:100px auto;
+  padding:20px;
+  border-radius:10px;
+  ">
+
+    <h3 id="viewTitle"></h3>
+
+    <p id="viewPhone"></p>
+    <p id="viewEmail"></p>
+    <p id="viewService"></p>
+    <p id="viewNotes"></p>
+
+    <button id="deleteEventBtn">
+      Delete
+    </button>
+
+    <button id="closeViewBtn">
+      Close
+    </button>
+
+  </div>
+
+</div>
 </body>
 </html>
