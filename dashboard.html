@@ -196,7 +196,27 @@ events: []
 });
 
 calendar.render();
+const { data, error } = await supabaseClient
+  .from('appointments')
+  .select('*');
 
+if (!error && data) {
+
+  data.forEach(appt => {
+
+    calendar.addEvent({
+      title: appt.name,
+      start: appt.appointment_date + 'T' + appt.appointment_time,
+      extendedProps: {
+        phone: appt.phone,
+        email: appt.email,
+        service: appt.service
+      }
+    });
+
+  });
+
+}
 document.getElementById('closeAppointment').onclick = function(){
 
   document.getElementById('appointmentModal').style.display = 'none';
