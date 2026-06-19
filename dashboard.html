@@ -146,8 +146,14 @@ eventClick: function(info){
 
   window.selectedEvent = info.event;
 
-  document.getElementById('viewTitle').innerText =
-    info.event.title;
+  if(info.event.title.startsWith('BLOCKED:')){
+
+  document.getElementById('viewPhone').innerText = '';
+  document.getElementById('viewEmail').innerText = '';
+  document.getElementById('viewService').innerText = '';
+  document.getElementById('viewNotes').innerText = '';
+
+} else {
 
   document.getElementById('viewPhone').innerText =
     'Phone: ' + (info.event.extendedProps.phone || '');
@@ -160,6 +166,8 @@ eventClick: function(info){
 
   document.getElementById('viewNotes').innerText =
     'Notes: ' + (info.event.extendedProps.notes || '');
+
+}
 
   document.getElementById('viewModal').style.display = 'block';
 
