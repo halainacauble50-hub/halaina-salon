@@ -533,16 +533,21 @@ z-index:11000;
 
 <script>
 
-document.getElementById('deleteEventBtn').onclick = function(){
+document.getElementById('deleteEventBtn').onclick = async function(){
 
   if(window.selectedEvent){
+
+    await supabaseClient
+      .from('appointments')
+      .delete()
+      .eq('id', window.selectedEvent.id);
+
     window.selectedEvent.remove();
   }
 
   document.getElementById('viewModal').style.display = 'none';
 
 };
-
 document.getElementById('closeViewBtn').onclick = function(){
 
   document.getElementById('viewModal').style.display = 'none';
